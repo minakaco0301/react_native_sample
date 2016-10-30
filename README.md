@@ -3,13 +3,12 @@
 0. ReactNativeのメリットデメリットとデバック<br>
 1. プロジェクト作成<br>
 2. Reactの概要<br>
-3. <br>
-4. Flexbox Layoout<br>
-5. ScrollViewとListView<br>
-6. ライブラリ<br>
-7. 実機ビルド<br>
-8. iOS申請<br>
-9. 参考資料<br>
+3. Flexbox Layoout<br>
+4. ScrollViewとListView<br>
+5. ライブラリ<br>
+6. 実機ビルド<br>
+7. iOS申請<br>
+8. 参考資料<br>
 
 #0.ReactNativeのメリットデメリット
 ・Reactを用いてiOSやAndroidのネイティブアプリを構築できるフレームワーク<br>
@@ -50,8 +49,9 @@ react-native run-ios
 #2.Reactの概要
 
 2つのデータをコントールする為のコンポーネントがあります。propsとstateです。
-- 
-- 
+Propsは一度コンポーネントが作成されると変更されませんが、 Stateはコンポーネントの中で変更される値を保持するために使います。
+- Props
+- State
 
 
 
@@ -101,7 +101,9 @@ Link: ( https://react.parts/native )
 
 #8. iOS申請
 
+
+
 #9. 参考資料
-Link1: (https://github.com/besutome/slides/tree/master/20161016-ReactNative-handson)
+Link1: (https://github.com/besutome/slides/tree/master/20161016-ReactNative-handson)<br>
 Link2: (https://github.com/besutome/slides/tree/master/20160918-react-handson)
 
