@@ -97,6 +97,10 @@ React Native向けのライブラリはnpmで提供されています。 <br>
 ほとんどがnpm installで利用できますが、ものによっては設定ファイルを編集する必要があります。<br>
 Link: ( https://react.parts/native )
 
+#7. ReactNarive上のSyntax
+Links1: ( http://facebook.github.io/react-native/docs/javascript-environment.html#javascript-syntax-transformers )
+Links1: ( http://lealog.hateblo.jp/entry/2016/05/29/233244 )
+
 #7. 実機ビルド
 
 #8. iOS申請
@@ -106,4 +110,5 @@ Link: ( https://react.parts/native )
 #9. 参考資料
 Link1: (https://github.com/besutome/slides/tree/master/20161016-ReactNative-handson)<br>
 Link2: (https://github.com/besutome/slides/tree/master/20160918-react-handson)
+Link3: (http://yutamasun.sakura.ne.jp/blog/2016/03/21/react-native-01/)
 
