@@ -1,7 +1,4 @@
-http://react-native-meetup.connpass.com/event/39685/
-
 # アジェンダ
-
 0. ReactNativeのメリットデメリットとデバック<br>
 1. プロジェクト作成<br>
 2. Reactの概要<br>
@@ -51,16 +48,11 @@ react-native run-ios
 #2.Reactの概要
 
 Reactは Component というモジュールを使い、複数のComponentを組み合わせて実装します。
-```
-
-
-```
-
-コンポーネントがもつ値には、データをコントールする為にpropsとstateがあります。
+そして、コンポーネントがもつ値には、データをコントールする為にpropsとstateがあります。
 
 - Props<br>
-
-Most components can be customized when they are created, with different parameters. These creation parameters are called props.
+Componentは、異なるパラメータとともにカスタマイズできます。
+これらのパラメータは、propsと呼ばれます。
 例えば, １つの基本的なReact NativeのコンポーネントはImageです。
 画像を表示するのを制御したいときは、sorceという名前のpropを使います。
 Link (https://facebook.github.io/react-native/docs/props.html#content)
@@ -96,11 +88,11 @@ class Text extends Component {
 
 ```
 
-
-
-
  
 #3. Flexbox Layoout 
+
+React Nativeでのレイアウトは、css flexboxと同じ設計を利用します。
+
 ```
 render() {
   return (
@@ -116,6 +108,11 @@ render() {
   );
 }
 ```
+flexプロパティは要素の伸び率を指定できます。<br>
+上記は各Viewコンポーネントの高さ比率を1:2:3にしています。<br>
+親のViewにflex: 1を指定することで、画面全体に領域を広げています。<br>
+これによって、デバイスサイズに関係なくレイアウトすることができます。<br>
+
 
 flexDirectionではflexboxで要素を並べる方向を定めることができます。<br>
 デフォルトの縦方向がcolumn、横方向がrowです。<br>
@@ -127,7 +124,23 @@ cssとの違いはいくつかありますが、重要なのはz-indexを指定�
 
 ![Flexbox Layoout](http://i.imgur.com/Lup038j.png "Flexbox Layoout " style" width:400px")
 
-#4. ScrollViewとListView
+#4. ScrollView
+
+スクロール領域を指定したい場合は、ScrollViewもしくはListViewで指定する必要があります。
+それぞれの違いは以下です。
+
+- ScrollView<br>
+要素が小さくて大きさが限られたものを表示する<br>
+要素は基本的に不変<br>
+
+- ListView<br>
+要素が長いリスト<br>
+要素が動的に変更される<br>
+ScrollViewの内容は端末内であらかじめ全てレンダリングされます。<br>
+ListViewはスクロールされた時に画面に入った要素をその都度レンダリングします。<br>
+
+
+
 
 ```
       <ScrollView>
@@ -145,7 +158,7 @@ cssとの違いはいくつかありますが、重要なのはz-indexを指定�
         </View>
       </ScrollView>
 ```
-※ Listviewまだ試せてない
+
 
 #5. ルーティング
 ```
