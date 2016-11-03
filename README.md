@@ -1,3 +1,5 @@
+http://react-native-meetup.connpass.com/event/39685/
+
 # アジェンダ
 
 0. ReactNativeのメリットデメリットとデバック<br>
@@ -48,18 +50,54 @@ react-native run-ios
 
 #2.Reactの概要
 
-2つのデータをコントールする為のコンポーネントがあります。propsとstateです。
-Propsは一度コンポーネントが作成されると変更されませんが、 Stateはコンポーネントの中で変更される値を保持するために使います。
-- Props
-- State
+Reactは Component というモジュールを使い、複数のComponentを組み合わせて実装します。
+```
 
 
+```
 
+コンポーネントがもつ値には、データをコントールする為にpropsとstateがあります。
 
-###
+- Props<br>
+
 Most components can be customized when they are created, with different parameters. These creation parameters are called props.
-For example, one basic React Native component is the Image. When you create an image, you can use a prop named source to control what image it shows.
+例えば, １つの基本的なReact NativeのコンポーネントはImageです。
+画像を表示するのを制御したいときは、sorceという名前のpropを使います。
 Link (https://facebook.github.io/react-native/docs/props.html#content)
+- State<br>
+Propsは一度コンポーネントが作成されると変更されませんが、 Stateはコンポーネントの中で変更される値を保持するために使います。
+
+```
+class Text extends Component {
+   constructor(props) {
+     super(props);
+     this.state = {
+       showText: true
+     };
+
+     setInterval(() => {
+      this.setState({
+        showText: !this.state.showText
+      });
+     }, 1000);
+   }
+
+  render() {
+    const text = this.state.showText? this.props.text : '';
+    return (
+      <div>
+        <span style={{color: "red"}}>
+          {text}
+        </span>
+      </div>
+    );
+  }
+}
+
+```
+
+
+
 
  
 #3. Flexbox Layoout 
@@ -86,10 +124,62 @@ flexDirectionではflexboxで要素を並べる方向を定めることができ
 cssとの違いはいくつかありますが、重要なのはz-indexを指定できないことです。<br>
 重ね順を変更するにはコンポーネントの順序を変えることで対応します。<br>
 
+
+![Flexbox Layoout](http://i.imgur.com/Lup038j.png "Flexbox Layoout " style" width:400px")
+
 #4. ScrollViewとListView
 
+```
+      <ScrollView>
+        <View style={{height: 400, backgroundColor: 'powderblue'}} >
+          <Text style={{fontSize: 100}}>hoge</Text>
+        </View>
+        <View style={{height: 400, backgroundColor: 'skyblue'}} >
+          <Text style={{fontSize: 100}}>fuga</Text>
+        </View>
+        <View style={{height: 400, backgroundColor: 'deepskyblue'}} >
+          <Text style={{fontSize: 100}}>foo</Text>
+        </View>
+        <View style={{height: 400, backgroundColor: 'dodgerblue'}} >
+          <Text style={{fontSize: 100}}>bar</Text>
+        </View>
+      </ScrollView>
+```
+※ Listviewまだ試せてない
 
 #5. ルーティング
+```
+import React, { Component, PropTypes } from 'react';
+import { AppRegistry, Navigator, Text, TouchableHighlight, View } from'react-native';
+
+class MyScene extends Component{
+  static propTypes = {
+    title: PropTypes.string.isRequired
+  };
+  render() {
+    return (
+      <View style={{padding: 30}}>
+        <Text>タイトル:{this.props.title}</Text>
+      </View>
+    );
+  }
+}
+
+class AwesomeProject extends Component {
+  render() {
+    return (
+      <Navigator
+        initialRoute={{title: 'MyInitialScene', index: 0}}
+        renderScene={ (route,navigator) =>
+          <MyScene title={route.title}/>
+        }
+      />
+    )
+  }
+}
+
+AppRegistry.registerComponent('AwesomeProject',()=>AwesomeProject);
+```
 
 
 #6. ライブラリ
@@ -101,14 +191,18 @@ Link: ( https://react.parts/native )
 Links1: ( http://facebook.github.io/react-native/docs/javascript-environment.html#javascript-syntax-transformers )
 Links1: ( http://lealog.hateblo.jp/entry/2016/05/29/233244 )
 
-#7. 実機ビルド
+#8. シュミレーターで実機ビルド確認
+test/ios/test.xcodeprojにプロジェクトファイルがあります。
+xcodeを開いて、再生マークをクリックします。
 
-#8. iOS申請
+#9. iOS申請
+
+Link1: (http://examination-03.hatenablog.com/)
+... (to be continued)
 
 
-
-#9. 参考資料
+#10. 参考資料
 Link1: (https://github.com/besutome/slides/tree/master/20161016-ReactNative-handson)<br>
-Link2: (https://github.com/besutome/slides/tree/master/20160918-react-handson)
+Link2: (https://github.com/besutome/slides/tree/master/20160918-react-handson)<br>
 Link3: (http://yutamasun.sakura.ne.jp/blog/2016/03/21/react-native-01/)
 
